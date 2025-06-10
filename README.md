@@ -1,27 +1,20 @@
-# odin-template
-Creating a template for future Odin Project repo's to give me a quicker start. Hopefully this works!
+# odin-todo
+The goal is to create a light, little ToDo app making use of what I've learned so far, which is quite a lot, and then going further to add an utilize things I've not yet interacted with.
 
-## Webpack Packages
-- html-webpack-plugin
-- style-loader
-- css-loader
-- html-loader
-- webpack-dev-server
+## ToDo (Ironically):
 
-## Webpack Scripts
-- "build" runs npx webpack
-- "dev" runs the webpack dev server, connect at localhost:8080, ctrl-c to stop
-- "deploy" pushes the dist files to github pages "gh-pages" branch
-- "setup" builds out my folder structure, installs packages and runs npm init
-
-## Structure
-- /src contains /css, /font, /img and /js.
-- Each of those contains a /wip folder that is .gitignore'd
-
-### Setup GitHub Pages Sub-Branch
-1. git branch gh-pages
-2. git checkout gh-pages && git merge main --no-edit
-3. npx webpack
-4. git add dist -f && git commit -m "deployment commit"
-5. webpack run deploy
-6. git checkout main
+- [ ] Gather requirements
+      - [ ] Double-check assignment page
+      - [ ] Create vague architectural plan
+- [x] Create generic, git project template
+      - Look in "Revisiting Webpack"
+      - Vaguely match restaurant project folder structure
+- [ ] Create visual template (HTML, CSS)
+- [ ] Explore date-fns as per assignment
+- [ ] Explore localStorage as per assignment
+- [ ] Encorporate new libraries into project
+- [ ] Build out basic functionality
+- [ ] Test and tweak
+- [ ] Verify functionality against other examples
+- [ ] Refactor
+- [ ] Submit
