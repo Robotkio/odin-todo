@@ -4,8 +4,8 @@ The goal is to create a light, little ToDo app making use of what I've learned s
 ## ToDo (Ironically):
 
 - [x] Gather requirements
-  - [ ] Double-check assignment page
-  - [ ] Create vague architectural plan
+  - [x] Double-check assignment page
+  - [x] Create vague architectural plan
 - [x] Create generic, git project template
   - Look in "Revisiting Webpack"
   - Vaguely match restaurant project folder structure
@@ -19,11 +19,13 @@ The goal is to create a light, little ToDo app making use of what I've learned s
 - [ ] Refactor
 - [ ] Submit
 
-### Create Template
+### 1. Create Template
 
 I created a template repo but I'm not confident I did it right. I suppose "right" is whatever is good for me and saves me time. I set up npm, Webpack and some modules. I don't know how to get the default package.json defaults to change to this repo rather than the template repo other than to manually edit them. I am a little proud to have researched that Git doesn't track folder structure, just files, so I made a script in package.json that creates the folder structure, runs npm install and npm init.
 
-### Gather Requirements
+### 2. Gather Requirements
+
+I've worked out some rough ideas on what I'm going to do and how I'm going to structure the whole thing. Organized it as below:
 
 #### Attributes
 
