@@ -28,24 +28,24 @@ I created a template repo but I'm not confident I did it right. I suppose "right
 #### Attributes
 
 - Item
-      - title
-      - description
-      - due date
-      - priority
-      - completed
-      - notes
-      - associated projects
-      - colour
+  - title
+  - description
+  - due date
+  - priority
+  - completed
+  - notes
+  - associated projects
+  - colour
 - Note
-      - description
-      - completed
+  - description
+  - completed
 - Project
-      - items
-      - description
-      - title
-      - due date
-      - priority
-      - colour
+  - items
+  - description
+  - title
+  - due date
+  - priority
+  - colour
 
 #### Functions
 
