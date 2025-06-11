@@ -4,11 +4,11 @@ The goal is to create a light, little ToDo app making use of what I've learned s
 ## ToDo (Ironically):
 
 - [x] Gather requirements
-      - [ ] Double-check assignment page
-      - [ ] Create vague architectural plan
+  - [ ] Double-check assignment page
+  - [ ] Create vague architectural plan
 - [x] Create generic, git project template
-      - Look in "Revisiting Webpack"
-      - Vaguely match restaurant project folder structure
+  - Look in "Revisiting Webpack"
+  - Vaguely match restaurant project folder structure
 - [ ] Create visual template (HTML, CSS)
 - [ ] Explore date-fns as per assignment
 - [ ] Explore localStorage as per assignment
@@ -77,7 +77,7 @@ I created a template repo but I'm not confident I did it right. I suppose "right
 
 - Project can give a % complete based on number of completed items
 - Three priority levels "Low, Normal, High"
-      - check chili or thermometer on pictogrammers material design icons
+  - check chili or thermometer on pictogrammers material design icons
 - Maybe standard boxes for completion
 - color selection from a pre-defined list
 - should be popups for the edit and create functions
@@ -85,11 +85,11 @@ I created a template repo but I'm not confident I did it right. I suppose "right
 #### Architectural Concepts
 
 - one module for core todo functions
-      - item, note, project defined as classes in there
+  - item, note, project defined as classes in there
 - second module for displaying todo objects
-      - for building the core functions into objects
-      - import css for styling?
+  - for building the core functions into objects
+  - import css for styling?
 - third module for page functions
-      - this can be where UI functions like adding a new item or project are
-      - display the lists of items/projects
-      - individual project/item view
+  - this can be where UI functions like adding a new item or project are
+  - display the lists of items/projects
+  - individual project/item view
