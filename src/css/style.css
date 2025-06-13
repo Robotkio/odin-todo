@@ -1,3 +1,129 @@
+
+:root {
+    --icon-size: 1.5rem;
+    --color-icon-size: 1.2rem;
+
+    --color-red: rgb(241, 196, 196);
+    --color-green: rgb(202, 231, 202);
+    --color-yellow: rgb(255, 255, 206);
+    --color-orange: rgb(243, 222, 182);
+    --color-blue: rgb(194, 202, 228);
+
+    --item-description-background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* TEMP */
+/* This should be replaced with an explicit class once the svgs are just svgs*/
+
+.todo-item img{
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
 body {
-    background-color: grey;
+    background-color: white;
+    font-family: Roboto, sans-serif;
+}
+
+.item-container {
+    display: flex;
+}
+
+
+/* temp bg's */
+
+.todo-item > header > *,
+.todo-item-options > *{
+    /* background-color: lightblue; */
+}
+
+/* general todo-item stuff */
+
+.todo-item {
+    background-color: var(--color-blue);
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.color-icon {
+    width: var(--color-icon-size);
+    height: var(--color-icon-size);
+    margin: 3px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+.blue { background-color: var(--color-blue); }
+.green { background-color: var(--color-green); }
+.yellow { background-color: var(--color-yellow); }
+.orange { background-color: var(--color-orange); }
+.red { background-color: var(--color-red); }
+
+/* todo-item header stuff */
+
+.todo-item > header {
+    display: grid;
+    grid-template-columns: var(--icon-size) 1fr var(--icon-size);
+    column-gap: 10px;
+}
+
+.todo-item-title {
+    font-size: 1.5rem;
+}
+
+/* todo-item-options stuff */
+
+.todo-item-options {
+    display: grid;
+    grid-template-columns: 6rem 1fr var(--icon-size);
+    grid-template-areas: "i1 i2 i3"
+                         "settings settings settings";
+    column-gap: 10px;
+}
+
+.edit-icon-open, .edit-icon-closed {
+    background-color: var(--item-description-background-color);
+}
+.edit-icon-open {
+    border-radius: 3px 3px 0 0;
+}
+.edit-icon-closed {
+    border-radius: 3px;
+}
+
+.todo-item-edit-options {
+    background-color: var(--item-description-background-color);
+    grid-area: settings;
+    border-radius: 3px;
+    padding: 5px;
+    /* display: none; */
+}
+
+.todo-item-edit-options-color {
+    display: flex;
+}
+
+/* todo-item-description */
+
+.todo-item-description {
+    background-color: var(--item-description-background-color);
+    padding: 7px;
+    margin: 5px 0px;
+    border-radius: 3px;
+}
+
+/* todo-item-notes */
+
+.todo-item-notes {
+    background-color: var(--item-description-background-color);
+    padding: 7px;
+    margin: 5px 0px;
+    border-radius: 3px;
+}
+
+.todo-item-notes-header {
+    display: grid;
+    grid-template-columns: 1fr var(--icon-size);
 }

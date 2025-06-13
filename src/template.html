@@ -8,33 +8,46 @@
 </head>
 <body>
     <p>Hello world!</p> 
-    <div class="container">
+    <div class="item-container">
         <!-- id, title, description, dueDate, priority, color, complete, notes, projects -->
         <div class="todo-item">
             <header>
                  <div class="todo-item-completed-icon">
-                    <!-- svg icon -->
+                    <img src="img/checkbox-blank-outline.svg" alt="unchecked completion checkbox">
                  </div>
                  <div class="todo-item-title">
                     Title Goes Here
                  </div>
                  <div class="todo-item-priority-icon">
-                    <!-- svg icon -->
+                    <img src="img/priority-high.svg" alt="high priority icon">
                  </div>
             </header>
             <div class="todo-item-options">
                 <div class="todo-item-dueDate">
-                    <!-- date -->
+                    Due: Oct. 21
                 </div>
                 <div class="todo-item-projects-list">
-                    None
+                    Project: None
                 </div>
-                <div class="todo-item-edit-icon">
-                    <!-- cog svg -->
+                <div class="todo-item-edit-icon edit-icon-open">
+                    <img src="img/cog.svg" alt="edit item icon">
                 </div>
                 <!-- new line, this one spans all 3 columns unless cog hit -->
                 <div class="todo-item-edit-options">
-                    <!-- maybe just color picker and priority change ? -->
+                    <div class="todo-item-edit-options-priority">
+                        <img src="img/priority-low.svg" alt="low priority icon">
+                        <img src="img/priority-medium.svg" alt="medium priority icon">
+                        <img src="img/priority-high.svg" alt="high priority icon">
+                        <img src="img/trash-can-outline.svg" alt="delete item icon">
+                        <img src="img/text-box-edit-outline.svg" alt="edit item icon">
+                    </div>
+                    <div class="todo-item-edit-options-color">
+                        <div class="color-icon blue"></div>
+                        <div class="color-icon green"></div>
+                        <div class="color-icon yellow"></div>
+                        <div class="color-icon orange"></div>
+                        <div class="color-icon red"></div>
+                    </div>
                 </div>
             </div>
             <div class="todo-item-description">
@@ -42,8 +55,114 @@
             </div>
             <div class="todo-item-notes">
                 <div class="todo-item-notes-header">
-                    Additonal Notes:
-                    <!-- add notes icon -->
+                    <div>Additonal Notes:</div>
+                    <img src="img/file-document-plus-outline.svg" alt="add new note icon">
+                </div>
+                <div class="todo-item-notes-container">
+                    ADDITIONAL NOTES HERE
+                </div> 
+            </div>
+        </div>
+
+
+        <div class="todo-item">
+            <header>
+                 <div class="todo-item-completed-icon">
+                    <img src="img/checkbox-blank-outline.svg" alt="unchecked completion checkbox">
+                 </div>
+                 <div class="todo-item-title">
+                    Title Goes Here
+                 </div>
+                 <div class="todo-item-priority-icon">
+                    <img src="img/priority-high.svg" alt="high priority icon">
+                 </div>
+            </header>
+            <div class="todo-item-options">
+                <div class="todo-item-dueDate">
+                    Oct. 21
+                </div>
+                <div class="todo-item-projects-list">
+                    No Project
+                </div>
+                <div class="todo-item-edit-icon">
+                    <img src="img/cog.svg" alt="edit item icon">
+                </div>
+                <!-- new line, this one spans all 3 columns unless cog hit -->
+                <div class="todo-item-edit-options">
+                    <div class="todo-item-edit-options-priority">
+                        <img src="img/priority-low.svg" alt="low priority icon">
+                        <img src="img/priority-medium.svg" alt="medium priority icon">
+                        <img src="img/priority-high.svg" alt="high priority icon">
+                        <img src="img/trash-can-outline.svg" alt="delete item icon">
+                        <img src="img/text-box-edit-outline.svg" alt="edit item icon">
+                    </div>
+                    <div class="todo-item-edit-options-color">
+                        <div class="color-icon blue"></div>
+                        <div class="color-icon green"></div>
+                        <div class="color-icon yellow"></div>
+                        <div class="color-icon orange"></div>
+                        <div class="color-icon red"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="todo-item-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi dolores asperiores delectus debitis, cum magnam quod autem ullam perspiciatis ea vitae est eius molestias!
+            </div>
+            <div class="todo-item-notes">
+                <div class="todo-item-notes-header">
+                    <p>Additonal Notes:</p>
+                    <img src="img/file-document-plus-outline.svg" alt="add new note icon">
+                </div>
+                <!-- notes list -->
+            </div>
+        </div>
+        <div class="todo-item">
+            <header>
+                 <div class="todo-item-completed-icon">
+                    <img src="img/checkbox-blank-outline.svg" alt="unchecked completion checkbox">
+                 </div>
+                 <div class="todo-item-title">
+                    Title Goes Here
+                 </div>
+                 <div class="todo-item-priority-icon">
+                    <img src="img/priority-high.svg" alt="high priority icon">
+                 </div>
+            </header>
+            <div class="todo-item-options">
+                <div class="todo-item-dueDate">
+                    Oct. 21
+                </div>
+                <div class="todo-item-projects-list">
+                    No Project
+                </div>
+                <div class="todo-item-edit-icon">
+                    <img src="img/cog.svg" alt="edit item icon">
+                </div>
+                <!-- new line, this one spans all 3 columns unless cog hit -->
+                <div class="todo-item-edit-options">
+                    <div class="todo-item-edit-options-priority">
+                        <img src="img/priority-low.svg" alt="low priority icon">
+                        <img src="img/priority-medium.svg" alt="medium priority icon">
+                        <img src="img/priority-high.svg" alt="high priority icon">
+                        <img src="img/trash-can-outline.svg" alt="delete item icon">
+                        <img src="img/text-box-edit-outline.svg" alt="edit item icon">
+                    </div>
+                    <div class="todo-item-edit-options-color">
+                        <div class="color-icon blue"></div>
+                        <div class="color-icon green"></div>
+                        <div class="color-icon yellow"></div>
+                        <div class="color-icon orange"></div>
+                        <div class="color-icon red"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="todo-item-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi dolores asperiores delectus debitis, cum magnam quod autem ullam perspiciatis ea vitae est eius molestias!
+            </div>
+            <div class="todo-item-notes">
+                <div class="todo-item-notes-header">
+                    <p>Additonal Notes:</p>
+                    <img src="img/file-document-plus-outline.svg" alt="add new note icon">
                 </div>
                 <!-- notes list -->
             </div>

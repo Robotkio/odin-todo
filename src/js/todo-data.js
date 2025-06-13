@@ -72,7 +72,7 @@ class Item extends CoreNoteAspects{
         super(title, description, dueDate, priority, color);
         this.complete = false;
         this.notes = [];
-        this.projects = [];
+        this.project = null;
     }
     set complete(val) {
         if (typeof val === 'boolean') {
@@ -105,22 +105,16 @@ class Item extends CoreNoteAspects{
     get notes() {
         return notes;
     }
-    addProject(projectID) {
-        if (typeof projectID === "string") {
-            this.projects.add(projectID);
+    set project(project) {
+        if (project instanceof Project || project === null) {
+            this.project = project;
             return true;
         } else {
             return false;
         }
     }
-    removeProject(projectID) {
-        for (let i = 0; i < this.projects.length; i++) {
-            if(this.projects[i].id === projectID) {
-                this.projects.splice(i, 1);
-                return true;
-            }
-        }
-        return false;
+    get project() {
+        return project;
     }
     get projects() {
         return projects;
@@ -130,7 +124,6 @@ class Item extends CoreNoteAspects{
 class Project extends CoreNoteAspects {
     constructor(title, description, dueDate, priority, color) {
         super(title, description, dueDate, priority, color);
-        this.id = crypto.randomUUID();
         this.items = [];
     }
     addItem(item) {
