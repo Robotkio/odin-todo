@@ -15,7 +15,7 @@
 /* TEMP */
 /* This should be replaced with an explicit class once the svgs are just svgs*/
 
-.todo-item img{
+.todo-item img, .todo-icon{
     width: var(--icon-size);
     height: var(--icon-size);
 }

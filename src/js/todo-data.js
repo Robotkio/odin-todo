@@ -1,93 +1,95 @@
+export { Item, Note, Project };
+
 class CoreNoteAspects {
     static validPriorities = ["high", "medium", "low"];
 
     constructor(title, description, dueDate, priority, color) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.color = color;
-        this.id = crypto.randomUUID();
+        this._title = title;
+        this._description = description;
+        this._dueDate = dueDate;
+        this._priority = priority;
+        this._color = color;
+        this._id = crypto.randomUUID();
     }
     set id(val) {
         if (typeof val === 'string') {
-            this.id = val;
+            this._id = val;
             return true;
         } else {
             return false;
         }
     }
     get id() {
-        return id;
+        return _id;
     }
     set title(val) {
         if (typeof val === 'string') {
-            this.title = val;
+            this._title = val;
             return true;
         } else {
             return false;
         }
     }
     get title() {
-        return this.title;
+        return this._title;
     }
     set description(val) {
         if (typeof val === 'string') {
-            this.description = val;
+            this._description = val;
             return true;
         } else {
             return false;
         }
     }
     get description() {
-        return this.description;
+        return this._description;
     }
     set dueDate(val) {
-        this.dueDate = val;
+        this._dueDate = val;
     }
     get dueDate() {
-        return this.dueDate;
+        return this._dueDate;
     }
     set priority(val) {
         if (validPriorities.includes(val)) {
-            this.priority = val;
+            this._priority = val;
             return true;
         } else {
             return false;
         }
     }
     get priority() {
-        return this.priority;
+        return this._priority;
     }
     set color(val) {
-        this.color = val;
+        this._color = val;
     }
     get color() {
-        return this.color;
+        return this._color;
     }
 }
 
 class Item extends CoreNoteAspects{
     constructor(title, description, dueDate, priority, color) {
         super(title, description, dueDate, priority, color);
-        this.complete = false;
-        this.notes = [];
-        this.project = null;
+        this._complete = false;
+        this._notes = [];
+        this._project = null;
     }
     set complete(val) {
         if (typeof val === 'boolean') {
-            this.complete = val;
+            this._complete = val;
             return true;
         } else {
             return false;
         }
     }
     get complete() {
-        return this.complete;
+        return this._complete;
     }
     addNote(note) {
         if (note instanceof Note) {
-            this.notes.push(note);
+            this._notes.push(note);
             return true;
         } else {
             return false;
@@ -95,29 +97,26 @@ class Item extends CoreNoteAspects{
     }
     removeNote(id) {
         for (let i = 0; i < this.notes.length; i++) {
-            if(this.notes[i].id === id) {
-                this.notes.splice(i, 1);
+            if(this._notes[i].id === id) {
+                this._notes.splice(i, 1);
                 return true;
             }
         }
         return false;
     }
     get notes() {
-        return notes;
+        return _notes;
     }
     set project(project) {
         if (project instanceof Project || project === null) {
-            this.project = project;
+            this._project = project;
             return true;
         } else {
             return false;
         }
     }
     get project() {
-        return project;
-    }
-    get projects() {
-        return projects;
+        return this._project;
     }
 }
 
