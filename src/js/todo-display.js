@@ -31,10 +31,12 @@ function makeItem(item) {
     const description = document.createElement("div");
     description.classList.add("todo-item-description");
     description.innerText = item.description;
+    const notes = _makeAdditionalNotes(item);
 
     htmlItem.appendChild(header);
     htmlItem.appendChild(options);
     htmlItem.appendChild(description);
+    htmlItem.appendChild(notes);
  
     return htmlItem;
 }
@@ -141,7 +143,28 @@ function _makeItemOptions(item) {
     return options;
 }
 
+function _makeAdditionalNotes(item) {
+    /* header */
+    const header = document.createElement("div");
+    header.classList.add("todo-item-notes-header");
 
+    /* header content*/
+    const title = document.createElement("div");
+    title.innerText = "Additional Notes:";
+    const container = document.createElement("div");
+    container.classList.add("todo-item-notes-container");
+
+    header.appendChild(title);
+    header.appendChild(_makeSVG(svgData["text-box-edit-outline"]));
+
+    /* complete container */
+    const itemNotes = document.createElement("div");
+    itemNotes.classList.add("todo-item-notes");
+    itemNotes.appendChild(header);
+    itemNotes.appendChild(container);
+
+    return itemNotes;
+}
 
 function _makeSVG( {title, d} ) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
