@@ -1,1 +1,0 @@
-import { makeSVG } from "./common-tools";
