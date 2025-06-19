@@ -1,6 +1,5 @@
 import "./css/style.css";
-import { TodoItem } from "./js/todo-classes";
-import { itemBuilder } from "./js/builders";
+import { TodoItem } from "./js/todo-item-class";
 import { displayTodoItems } from "./js/todo-form-functions";
 
 

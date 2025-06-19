@@ -1,6 +1,7 @@
-import { TodoItem } from "./todo-classes";
-import { format } from "../../node_modules/date-fns/index.d.cts";
-export { itemBuilder };
+import { format } from "../../node_modules/date-fns";
+import { svgBuilder } from "./generic-builders";
+import { TodoItem } from "./todo-item-class";
+export { TodoItem, itemBuilder };
 
 function itemBuilder(item) {
     const htmlItem = document.createElement("div");
@@ -37,18 +38,4 @@ function itemBuilder(item) {
     htmlItem.appendChild(body);
 
     return htmlItem;
-}
-
-function svgBuilder(title, d) {
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.classList.add("todo-icon");
-    svg.setAttribute("xmlns","http://www.w3.org/2000/svg");
-    svg.setAttribute("viewBox","0 0 24 24");
-    const svgTitle = document.createElement("title");
-    svgTitle.innerText = title;
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d",d);
-    svg.appendChild(svgTitle);
-    svg.appendChild(path);
-    return svg;
 }

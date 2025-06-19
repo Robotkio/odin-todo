@@ -1,10 +1,14 @@
-import { itemBuilder } from "../js/builders";
+import { itemBuilder } from "./todo-item-builder";
 export { displayTodoItems };
 
-const display = document.getElementById("main-display");
+const displayArea = document.getElementById("main-display");
+const addBtn = document.getElementById("todo-add-btn");
+const clearBtn = document.getElementById("todo-clear-btn");
+const cancelBtn = document.getElementById("todo-cancel-btn");
 
 function displayTodoItems(items) {
     items.forEach((element) => {
-            display.appendChild(itemBuilder(element));
+            displayArea.appendChild(itemBuilder(element));
     });
 }
+
