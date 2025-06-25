@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World!</title>
+    <title>Todo App</title>
     <script src="index.js" type="module"></script>
 </head>
 <body>
     <p>Hello world.</p>
-    <form action="#">
-        <div class="form-element">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title">
-        </div>
-        <div class="form-element">
-            <label for="date">Due Date</label>
-            <input type="date" id="date" name="date">
-        </div>
-        <div class="form-element">
-            <label for="description">Description</label>
-            <textarea name="desc" id="description"></textarea>
-        </div>
-        <div class="form-element">
-            <button type="button" class="todo-cancel-btn">Cancel</button>
-            <button type="reset" class="todo-clear-btn">Clear</button>
-            <button type="submit" class="todo-add-btn">Add</button>
-        </div>
-    </form>
+    
+    <div class="screen-hider">
+        <form action="#" id="item-form">
+            <div class="form-element">
+                <label for="title">Title</label>
+                <input type="text" id="item-title" name="title">
+            </div>
+            <div class="form-element">
+                <label for="date">Due Date</label>
+                <input type="date" id="item-date" name="date">
+            </div>
+            <div class="form-element">
+                <label for="description">Description</label>
+                <textarea name="desc" id="item-description"></textarea>
+            </div>
+            <div class="form-element">
+                <button type="button" class="todo-cancel-btn">Cancel</button>
+                <button type="reset" class="todo-clear-btn">Clear</button>
+                <button type="submit" class="todo-add-btn">Add</button>
+            </div>
+        </form>
+    </div>
     <div id="main-display">
         <!--put things in here!-->
     </div>
