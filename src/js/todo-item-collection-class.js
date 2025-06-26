@@ -17,14 +17,14 @@ class TodoItemCollection {
     get items() {
         return this._items;
     }
-    addItem(item) {
+    addExistingItem(item) {
         if (item instanceof TodoItem) {
             this._items.push(item);
         }
     }
     addNewItem(title, desc, date, id = null) {
         let item = new TodoItem(title, desc, date, id);
-        this.addItem(item);
+        this.addExistingItem(item);
     }
     removeItemByID(id) {
         for(let i = 0; i < this._items.length; i++) {
@@ -49,7 +49,7 @@ class TodoItemCollection {
                 }
                 const item = new TodoItem(i._title, i._description, new Date(i._date), i._id);
                 item.complete = i._complete;
-                this.addItem(item);
+                this.addExistingItem(item);
             });
         }
     }

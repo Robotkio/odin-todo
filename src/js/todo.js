@@ -1,6 +1,4 @@
-import { TodoItemCollection } from "./todo-item-collection-class";
 import { format } from "../../node_modules/date-fns";
-import { TodoItem } from "./todo-item-class";
 import { TodoList } from "./todo-items";
 
 const formTitle = document.getElementById("item-title");
