@@ -14,6 +14,9 @@ class TodoItemCollection {
     get id() {
         return this._id;
     }
+    get items() {
+        return this._items;
+    }
     addItem(item) {
         if (item instanceof TodoItem) {
             this._items.push(item);
@@ -31,9 +34,6 @@ class TodoItemCollection {
             }
         }
     }
-    getItems() {
-        return this._items;
-    }
     clearItems() {
         this._items = new Array();
     }
@@ -44,10 +44,21 @@ class TodoItemCollection {
         let jsonItems;
         if (jsonItems = JSON.parse(localStorage.getItem(this.id))) {
             jsonItems.forEach((i) => {
+                while(this.idInUse(i._id)) { 
+                    i._id = crypto.randomUUID();
+                }
                 const item = new TodoItem(i._title, i._description, new Date(i._date), i._id);
                 item.complete = i._complete;
                 this.addItem(item);
             });
         }
+    }
+    idInUse(id) {
+        for(let i = 0; i < this._items.length; i++) {
+            if(this._items[i].id == id) {
+                return true;
+            }
+        }
+        return false;
     }
 }
