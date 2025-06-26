@@ -45,6 +45,7 @@ class TodoList {
 
         /* completed icon */
         const icoComplete = this._buildCompletedIcon(item);
+        const icoDelete = this._buildDeleteIcon(item);
 
         /* title */
         const title = document.createElement("div");
@@ -57,6 +58,7 @@ class TodoList {
         dueDate.innerText = format(item.date, "MM/dd/yyy");
         
         header.appendChild(icoComplete);
+        header.appendChild(icoDelete);
         header.appendChild(title);
         header.appendChild(dueDate);
         
@@ -94,6 +96,19 @@ class TodoList {
             event.target.innerHTML = "";
             event.target.appendChild(svg);
             this.saveItems();
+        });
+        return icoComplete;
+    }
+    _buildDeleteIcon(item) {
+        const icoComplete = document.createElement("div");
+        icoComplete.classList.add("icon");
+        let svg = svgBuilder("trash-can-outline", "M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z");
+        icoComplete.appendChild(svg);
+
+        icoComplete.addEventListener("click", () => {
+            this._itemCollection.removeItemByID(item.id);
+            this.saveItems();
+            this.displayItems();
         });
         return icoComplete;
     }
