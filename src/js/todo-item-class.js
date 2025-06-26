@@ -38,7 +38,7 @@ class TodoItem{
         }
     }
     get complete() {
-        return this.complete;
+        return this._complete;
     }
     set id(val) {
         if(typeof val === "string") {
