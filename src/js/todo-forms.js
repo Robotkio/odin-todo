@@ -4,7 +4,7 @@ export { todoForm };
 const todoForm = (function () {
     function addFormElementToPage() {
         const formDisplay = _buildScreenHider();
-        formDisplay.appendChild(_buildForm());
+        formDisplay.appendChild(_buildAddForm());
         const body = document.body;
         body.insertBefore(formDisplay, body.firstChild);
     }
@@ -15,17 +15,19 @@ const todoForm = (function () {
         showForm.innerText = "Add";
         document.body.insertBefore(showForm, document.body.firstChild);
     }
-    function showForm() {
+    function hideScreen() {
         const form = document.querySelector(".screen-hider");
         form.classList.remove("hide");
         form.classList.add("show");
     }
-    function hideForm() {
+    function showScreen() {
         const form = document.querySelector(".screen-hider");
         form.classList.remove("show");
         form.classList.add("hide");
     }
-
+    function clearForm() {
+        document.getElementById("item-form");
+    }
     function _buildScreenHider() {
         const hider = document.createElement("div");
         hider.classList.add("screen-hider");
@@ -33,7 +35,7 @@ const todoForm = (function () {
         return hider;
     }
 
-    function _buildForm() {
+    function _buildAddForm() {
         const form = document.createElement("form");
         form.setAttribute("action", "#");
         form.setAttribute("id", "item-form");
@@ -43,7 +45,7 @@ const todoForm = (function () {
         titleInput.classList.add("form-element");
 
         let label = document.createElement("label");
-        label.setAttribute("for", "item-titl");
+        label.setAttribute("for", "item-title");
         label.innerText = "Title";
 
         let input = document.createElement("input");
@@ -119,5 +121,5 @@ const todoForm = (function () {
         return form;
     }
 
-    return { addFormElementToPage, addAddButtonToPage, showForm, hideForm }
+    return { addFormElementToPage, addAddButtonToPage, showForm: hideScreen, hideForm: showScreen }
 })();

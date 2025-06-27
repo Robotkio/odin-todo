@@ -22,10 +22,6 @@ class TodoItemCollection {
             this._items.push(item);
         }
     }
-    addNewItem(title, desc, date, id = null) {
-        let item = new TodoItem(title, desc, date, id);
-        this.addExistingItem(item);
-    }
     removeItemByID(id) {
         for(let i = 0; i < this._items.length; i++) {
             if(this._items[i].id === id) {
@@ -36,6 +32,7 @@ class TodoItemCollection {
     }
     clearItems() {
         this._items = new Array();
+        this.saveToLocalStorage();
     }
     saveToLocalStorage() {
         localStorage.setItem(this.id, JSON.stringify(this._items));

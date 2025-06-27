@@ -3,8 +3,13 @@ body {
 }
 
 .icon {
+    cursor: pointer;
     width: 1.2rem;
     height: 1.2rem;
+}
+
+.icon:hover {
+    fill: rgb(43, 42, 42);
 }
 
 .hide {
@@ -31,4 +36,11 @@ body {
     width: max(1vh, 300px);
     background-color: grey;
     border: 1px solid black;
+}
+
+.todo-item {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
 }

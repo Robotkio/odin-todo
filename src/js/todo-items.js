@@ -1,6 +1,7 @@
 import { format } from "../../node_modules/date-fns/index.d.cts";
 import { svgBuilder } from "./generic-builders";
 import { TodoItemCollection } from "./todo-item-collection-class";
+import { TodoItem } from "./todo-item-class";
 export { TodoList };
 
 class TodoList {
@@ -9,6 +10,9 @@ class TodoList {
         this.loadItems();
         this.displayItems();
     }
+    get items() {
+        return this._itemCollection;
+    }
     saveItems(){
         this._itemCollection.saveToLocalStorage();
     }
@@ -16,10 +20,10 @@ class TodoList {
         this._itemCollection.loadFromLocalStorage();
     }
     addItemFromFormInputs() {
-        const formTitle = document.getElementById("item-title");
-        const formDate = document.getElementById("item-date");
-        const formDescription = document.getElementById("item-description");
-        this._itemCollection.addNewItem(formTitle.value, formDescription.value, formDate.value);
+        const data = this._getFormData();
+        const item = new TodoItem(data.title, data.desc, data.date);
+        this._itemCollection.addExistingItem(item);
+
         this.saveItems();
         this.displayItems();
     }
@@ -32,9 +36,20 @@ class TodoList {
     getBuiltItems() {
         const items = [];
         this._itemCollection.items.forEach((item) => {
-            items.push(this._buildItem(item));
+            try {
+                items.push(this._buildItem(item));
+            }
+            catch {
+                console.log("Item build error.");
+            }
         });
         return items;
+    }
+    _getFormData() {
+        const title = document.getElementById("item-title").value;
+        const date = document.getElementById("item-date").value;
+        const desc = document.getElementById("item-description").value;
+        return { title, date, desc };
     }
     _buildItem(item) {
         const htmlItem = document.createElement("div");
@@ -45,6 +60,7 @@ class TodoList {
         /* icons */
         const icoComplete = this._buildCompletedIcon(item);
         const icoDelete = this._buildDeleteIcon(item);
+        const icoEdit = this._buildEditIcon(item);
 
         /* title */
         const title = document.createElement("div");
@@ -59,6 +75,7 @@ class TodoList {
         header.appendChild(icoComplete);
         header.appendChild(title);
         header.appendChild(icoDelete);
+        header.appendChild(icoEdit);
         header.appendChild(dueDate);
         
         /* body */
@@ -108,6 +125,17 @@ class TodoList {
             this._itemCollection.removeItemByID(item.id);
             this.saveItems();
             this.displayItems();
+        });
+        return icoComplete;
+    }
+    _buildEditIcon(item) {
+        const icoComplete = document.createElement("div");
+        icoComplete.classList.add("icon");
+        let svg = svgBuilder("text-box-edit-outline", "M10 21H5C3.89 21 3 20.11 3 19V5C3 3.89 3.89 3 5 3H19C20.11 3 21 3.89 21 5V10.33C20.7 10.21 20.37 10.14 20.04 10.14C19.67 10.14 19.32 10.22 19 10.37V5H5V19H10.11L10 19.11V21M7 9H17V7H7V9M7 17H12.11L14 15.12V15H7V17M7 13H16.12L17 12.12V11H7V13M21.7 13.58L20.42 12.3C20.21 12.09 19.86 12.09 19.65 12.3L18.65 13.3L20.7 15.35L21.7 14.35C21.91 14.14 21.91 13.79 21.7 13.58M12 22H14.06L20.11 15.93L18.06 13.88L12 19.94V22Z");
+        icoComplete.appendChild(svg);
+
+        icoComplete.addEventListener("click", () => {
+            console.log(item);
         });
         return icoComplete;
     }

@@ -1,6 +1,6 @@
 import { format } from "../../node_modules/date-fns";
 import { TodoList } from "./todo-items";
-import { todoForm } from "./todo-input-form";
+import { todoForm } from "./todo-forms";
 
 
 todoForm.addFormElementToPage();
