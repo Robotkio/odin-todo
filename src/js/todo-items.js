@@ -20,7 +20,6 @@ class TodoList {
         const formDate = document.getElementById("item-date");
         const formDescription = document.getElementById("item-description");
         this._itemCollection.addNewItem(formTitle.value, formDescription.value, formDate.value);
-        console.log(this._itemCollection.items);
         this.saveItems();
         this.displayItems();
     }
