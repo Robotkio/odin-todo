@@ -1,5 +1,8 @@
 export { TodoItem };
-
+/* 
+ *   Data class for storing a single ToDo Item.
+ *   Vague type checking to avoid being in an invalid state.
+ */
 class TodoItem{
     constructor (title, description, date, id = null) {
         this._title = title;

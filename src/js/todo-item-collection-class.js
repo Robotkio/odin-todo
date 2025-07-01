@@ -3,6 +3,11 @@ export { TodoItemCollection };
 
 const defaultCollectionName = "todo-item-collection";
 
+/*
+ *    Manages a collection of TodoItems. Saves to and loads
+ *    from memory.
+ */
+
 class TodoItemCollection {
     constructor (id = defaultCollectionName) {
         this._id = id;
@@ -18,7 +23,7 @@ class TodoItemCollection {
         return this._items;
     }
     addExistingItem(item) {
-        if (item instanceof TodoItem) {
+        if (item instanceof TodoItem){
             this._items.push(item);
         }
     }

@@ -36,6 +36,7 @@ class TodoList {
     getBuiltItems() {
         const items = [];
         this._itemCollection.items.forEach((item) => {
+            // items.push(this._buildEditableItem(item));
             try {
                 items.push(this._buildItem(item));
             }
@@ -52,8 +53,9 @@ class TodoList {
         return { title, date, desc };
     }
     _buildItem(item) {
-        const htmlItem = document.createElement("div");
-        htmlItem.classList.add("todo-item");
+        const returnItem = document.createElement("div");
+        returnItem.classList.add("todo-item");
+        returnItem.setAttribute("id", `item-${item.id}`);
 
         const header = document.createElement("header");
 
@@ -83,10 +85,56 @@ class TodoList {
         body.classList.add("todo-body");
         body.innerText = item.description;
 
-        htmlItem.appendChild(header);
-        htmlItem.appendChild(body);
+        returnItem.appendChild(header);
+        returnItem.appendChild(body);
 
-        return htmlItem;
+        return returnItem;
+    }
+    _buildEditableItem(item) {
+        const returnItem = document.createElement("div");
+        returnItem.classList.add("todo-item");
+        returnItem.setAttribute("id", `item-${item.id}`);
+
+        const header = document.createElement("header");
+
+        /* icons */
+        const icoComplete = this._buildCompletedIcon(item);
+        const icoDelete = this._buildDeleteIcon(item);
+        const icoSave = this._buildSaveIcon(item);
+
+        /* title */
+
+        const title = document.createElement("input");
+        title.setAttribute("type", "text");
+        title.classList.add("edit-item-title");
+        title.setAttribute("name", "title");
+        title.value = item.title;
+
+        /* due date */
+
+        const dueDate = document.createElement("input");
+        dueDate.setAttribute("type", "date");
+        dueDate.classList.add("edit-item-date");
+        dueDate.setAttribute("name", "date");
+        dueDate.value = format(item.date, "yyyy-MM-dd");
+        
+        header.appendChild(icoComplete);
+        header.appendChild(title);
+        header.appendChild(icoDelete);
+        header.appendChild(icoSave);
+        header.appendChild(dueDate);
+        
+        /* body */
+
+        const body = document.createElement("textarea");
+        body.classList.add("edit-item-desc");
+        body.setAttribute("name", "desc");
+        body.innerText = item.description;
+
+        returnItem.appendChild(header);
+        returnItem.appendChild(body);
+
+        return returnItem;
     }
     _buildCompletedIcon(item) {
         const icoComplete = document.createElement("div");
@@ -134,8 +182,37 @@ class TodoList {
         let svg = svgBuilder("text-box-edit-outline", "M10 21H5C3.89 21 3 20.11 3 19V5C3 3.89 3.89 3 5 3H19C20.11 3 21 3.89 21 5V10.33C20.7 10.21 20.37 10.14 20.04 10.14C19.67 10.14 19.32 10.22 19 10.37V5H5V19H10.11L10 19.11V21M7 9H17V7H7V9M7 17H12.11L14 15.12V15H7V17M7 13H16.12L17 12.12V11H7V13M21.7 13.58L20.42 12.3C20.21 12.09 19.86 12.09 19.65 12.3L18.65 13.3L20.7 15.35L21.7 14.35C21.91 14.14 21.91 13.79 21.7 13.58M12 22H14.06L20.11 15.93L18.06 13.88L12 19.94V22Z");
         icoComplete.appendChild(svg);
 
-        icoComplete.addEventListener("click", () => {
-            console.log(item);
+        icoComplete.addEventListener("click", (event) => {
+            const oldItem = event.target.parentElement.parentElement;
+            const editItem = this._buildEditableItem(item);
+            const container = event.target.parentElement.parentElement.parentElement;
+            container.insertBefore(editItem, oldItem);
+            oldItem.remove();
+        });
+        return icoComplete;
+    }
+    _buildSaveIcon(item) {
+        const icoComplete = document.createElement("div");
+        icoComplete.classList.add("icon");
+        let svg = svgBuilder("playlist-edit", "M3 6V8H14V6H3M3 10V12H14V10H3M20 10.1C19.9 10.1 19.7 10.2 19.6 10.3L18.6 11.3L20.7 13.4L21.7 12.4C21.9 12.2 21.9 11.8 21.7 11.6L20.4 10.3C20.3 10.2 20.2 10.1 20 10.1M18.1 11.9L12 17.9V20H14.1L20.2 13.9L18.1 11.9M3 14V16H10V14H3Z");
+
+        icoComplete.appendChild(svg);
+
+        icoComplete.addEventListener("click", (event) => {
+            // save data to item
+            const title = document.querySelector(`#item-${item.id} .edit-item-title`).value;
+            const date = document.querySelector(`#item-${item.id} .edit-item-date`).value;
+            const desc = document.querySelector(`#item-${item.id} .edit-item-desc`).innerHTML;
+            item.title = title;
+            item.date = date;
+            item.description = desc;
+            this.saveItems();
+
+            const oldItem = event.target.parentElement.parentElement;
+            const editItem = this._buildItem(item);
+            const container = event.target.parentElement.parentElement.parentElement;
+            container.insertBefore(editItem, oldItem);
+            oldItem.remove();
         });
         return icoComplete;
     }
